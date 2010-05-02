@@ -24,7 +24,7 @@ task :watch do
   end
 
   rebuild_site = lambda do |base, relative|
-    if relative && ((relative.include? ".sass") || (relative.include? ".scss"))
+    if relative && relative =~ /\.s[ac]ss/
       puts ">>> Change Detected to #{relative} : updating stylsheets <<<"
       system "compass"
     else
